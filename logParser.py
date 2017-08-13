@@ -59,6 +59,9 @@ def getHeaterSum(heater, mintime = 0, maxtime = inf):
     session.close()
 
     totalHeat = 0
+    
+    # Filter out invalid
+    heaterData = [heater for heater in heaterData if not heater.actuator is None]
     for h in range(0, len(heaterData) - 1):
         try:
             totalHeat += heaterData[h].actuator * (heaterData[h+1].time - heaterData[h].time)
