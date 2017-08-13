@@ -18,6 +18,8 @@ class HeaterStatProto():
     actuator = Column(Integer)
     desired_temp = Column(REAL)
     measured_temp = Column(REAL)
+    dewpoint = Column(REAL)
+    humidity = Column(REAL)
 
 class Heater(Base):
     __tablename__ = 'heater_list'
