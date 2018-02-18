@@ -1,7 +1,10 @@
+#!/usr/bin/env python3
+
 import sys
 import datetime
 import argparse
 import logParser
+import dateparser
 from math import inf
 
 argparser = argparse.ArgumentParser(description='Parse the FHEM logfiles into a Database.')
@@ -17,10 +20,17 @@ mintime, maxtime = 0, inf
 if args.timeSpan:
         times = args.timeSpan[0].split('..')
 
+
         if len(times) < 1 or len(times) > 2:
             print('Invalid Timespan!')
             exit(1)
         elif len(times) == 2:
+            try:
+                times[0] = dateparser.parse(times[0]).timestamp()
+                times[1] = dateparser.parse(times[1]).timestamp()
+            except:
+                pass
+
             if times[0] == '':
                 maxtime = int(times[1])
             else:
