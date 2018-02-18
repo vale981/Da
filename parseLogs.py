@@ -15,7 +15,6 @@ argparser.add_argument('--allHeatAmmount', help='Get the heat ammount from all k
 argparser.add_argument('--timeSpan', help='The time span for the heatAmmount calculation. Either t1/t2 or both may be supplied.', nargs=1, metavar='t1..t2 | t1 | ..t2')
 argparser.add_argument('--verbose', '-v', help='Output more information about the query.', action='store_true')
 
-
 # Parse args. Set name to default.
 args = argparser.parse_args()
 mintime, maxtime = 0, time.time()
@@ -27,13 +26,10 @@ if args.timeSpan:
             print('Invalid Timespan!')
             exit(1)
         elif len(times) == 2:
-            times[0] = dateparser.parse(times[0]).timestamp()
-            times[1] = dateparser.parse(times[1]).timestamp()
-
             if times[0] == '':
-                maxtime = int(times[1])
+                maxtime = dateparser.parse(times[1]).timestamp()
             else:
-                mintime, maxtime = times
+                mintime, maxtime = dateparser.parse(times[0]).timestamp(), dateparser.parse(times[1]).timestamp()
 
         else:
             mintime = int(times[0])
