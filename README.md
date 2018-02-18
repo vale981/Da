@@ -56,3 +56,5 @@ From the earliest record till a given date:
 # ./parseLogs.py --heatAmmount OG2_303_RT_01 --timeSpan ..'1 june 2016'
 OG2_303_RT_01, 285457264, 0, 1464732000
 ```
+
+
