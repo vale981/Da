@@ -13,7 +13,7 @@ argparser.add_argument('--list', '-l', help='List all Heaters in the Database.',
 argparser.add_argument('--heatAmmount', help='Sum of the actuator value times a time slice.', nargs=1, metavar='HEATER')
 argparser.add_argument('--allHeatAmmount', help='Get the heat ammount from all known heaters.', action='store_true')
 argparser.add_argument('--timeSpan', help='The time span for the heatAmmount calculation. Either t1/t2 or both may be supplied.', nargs=1, metavar='t1..t2 | t1 | ..t2')
-argparser.add_argument('--verbose', '-v', help='Output more information about the query.', action='store_true')
+argparser.add_argument('--verbose', '-v', help='Output names and dates.', action='store_true')
 
 # Parse args. Set name to default.
 args = argparser.parse_args()
