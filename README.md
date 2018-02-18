@@ -1,5 +1,5 @@
 # Wonderful FHEM log parser!
-
+Parses `fhem` logs. Primarily used to calculate how much `heat` was used.
  > Use with care. May bite if not fed properly.
 
 ## Installation
